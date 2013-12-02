@@ -1,0 +1,15 @@
+{
+  "scope":"source.symitar",
+  "completions":[
+    {"trigger":"If","contents":"If ${1:foo} = ${2:bar} Then\nDo\n  ${3:[Operations]}\nEnd"} // If Statement
+  , {"trigger":"For","contents":"For ${1:X} = ${2:0} To ${3:foobar}\n\t${4:[Operations]}\nEnd\n"}
+  , {"trigger":"Define","contents":"Define\n\t$1\nEnd [Define]"} // Define Block
+  , {"trigger":"Setup","contents":"Setup\n\t$1\nEnd [Setup]"} //Setup Block
+  , {"trigger":"Select","contents":"Select\n\t$1\nEnd [Select]"} // Select Block
+  , {"trigger":"Sort","contents":"Sort\n\t$1\nEnd [Sort]"}
+  , {"trigger":"Print","contents":"Print\n\t$1\nEnd [Print]"}
+  , {"trigger":"Total","contents":"Total\n\t$1\nEnd [Total]"} // Total Block
+  , {"trigger":"Procedure","contents":"Procedure ${1:foobar}\n\t${2:[Procedure]}\nEnd"}
+  , {"trigger":"#INCLUDE","contents":"#INCLUDE \"$1\""}
+  ]
+}
