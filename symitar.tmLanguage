@@ -20,33 +20,52 @@
     <key>patterns</key>
     <array>
         <dict>
-            <key>begin</key>
-            <string>\[</string>
-            <key>patterns</key>
-            <array>
+            <key>match</key>
+            <string>\[((NOTE:|Note:)([$-/:-?{-~!"^_`\.\s\w]*))\]</string>
+            <key>name</key>
+            <string>comment.line.symitar</string>
+            <key>captures</key>
+            <dict>
+                <key>1</key>
                 <dict>
-                    <key>match</key>
-                    <string>(NOTE:|Note:)([$-/:-?{-~!"^_`\.\s\w]*)</string>
                     <key>name</key>
                     <string>comment.line.note.symitar</string>
                 </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>match</key>
+            <string>\[((?&lt;=\[)(!)([$-/:-?{-~!"^_`\.\s\w]*))\]</string>
+            <key>name</key>
+            <string>comment.line.symitar</string>
+            <key>captures</key>
+            <dict>
+                <key>1</key>
                 <dict>
-                    <key>match</key>
-                    <string>(?&lt;=\[)(!)([$-/:-?{-~!"^_`\.\s\w]*)</string>
                     <key>name</key>
                     <string>comment.line.important.symitar</string>
                 </dict>
+            </dict>
+        </dict>
+        <dict>
+            <key>match</key>
+            <string>\[((ToDo:|Todo:|TODO:)([$-/:-?{-~!"^_`\.\s\w]*))\]</string>
+            <key>name</key>
+            <string>comment.line.symitar</string>
+            <key>captures</key>
+            <dict>
+                <key>1</key>
                 <dict>
-                    <key>match</key>
-                    <string>(ToDo:|Todo:|TODO:)([$-/:-?{-~!"^_`\.\s\w]*)</string>
                     <key>name</key>
                     <string>comment.line.todo.symitar</string>
                 </dict>
-            </array>
-            <key>end</key>
-            <string>\]</string>
+            </dict>
+        </dict>
+        <dict>
+            <key>match</key>
+            <string>\[(.*)\]</string>
             <key>name</key>
-            <string>comment.line.symitar</string>
+            <string>comment.block.symitar</string>
         </dict>
         <dict>
             <key>match</key>
@@ -104,13 +123,13 @@
         </dict>
         <dict>
             <key>match</key>
-            <string>(?&lt;!\.)\b(Target|Define|Setup|Select|Sort|Print|Total|Procedure|Call|Suppress|Windows|Subroutine|Demand|If|Then|Do|End|Else|For|To)\b(?![?!])</string>
+            <string>(?&lt;!\.)\b(Target|Define|Setup|Select|Sort|Print|Total|Procedure|Call|Suppress|Windows|Subroutine|Demand|If|Then|Do|End|Else|For|While|To|Set|FMPerform)\b(?![?!])</string>
             <key>name</key>
             <string>keyword.control.symitar</string>
         </dict>
         <dict>
             <key>match</key>
-            <string>(?&lt;!\.)\b(Character|Date|Number|Code|Money)\b(?![?!])</string>
+            <string>\b(?i)(Character|Date|Number|Code|Money|Rate)\b</string>
             <key>name</key>
             <string>support.type.symitar</string>
         </dict>
@@ -124,7 +143,7 @@
                 </dict>
             </dict>
             <key>match</key>
-            <string>#(INCLUDE)\b(?:\s*([^ ;$]+))</string>
+            <string>#(INCLUDE)\b(?:\s*([^ ;$]+))/i</string>
             <key>name</key>
             <string>meta.include.symitar</string>
         </dict>
